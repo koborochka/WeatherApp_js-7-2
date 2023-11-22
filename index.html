@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Погода</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<main>
+    <div class="weather-input-container">
+    <ul class="input-list">
+        <li>
+            <span class="label">Введите широту:</span>
+            <label>
+                <input class="latitude" type="number" placeholder="E.g. 12,9">
+            </label>
+        </li>
+        <li>
+            <span class="label">Введите долготу:</span>
+            <label>
+                <input class="longitude" type="number" placeholder="E.g. 112,5">
+            </label>
+        </li>
+    </ul>
+    <button class="but-show-weather">Показать погоду</button>
+    </div>
+</main>
 </body>
 </html>

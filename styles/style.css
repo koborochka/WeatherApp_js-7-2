@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    text-align: center;
+}
+
+.input-list{
+    display: grid;
+    row-gap: 52px;
+    margin-top: 79px;
+}
+
+.label{
+    font-size: 40px;
+    margin-right: 47px;
+}
+
+.but-show-weather{
+    color: white;
+    border: none;
+
+    border-radius: 8px;
+    background: #355FCA;
+
+    width: 617px;
+    height: 91px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 51px;
+
+    font-size: 40px;
+}
+
+.latitude, .longitude{
+    width: 405px;
+    height: 49px;
+    border: 2px solid #000;
+}
