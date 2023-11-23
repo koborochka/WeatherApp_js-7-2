@@ -5,19 +5,20 @@
     <title>Погода</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="scripts/script.js" defer></script>
 </head>
 <body>
 <main>
     <div class="weather-input-container">
     <ul class="input-list">
         <li>
-            <span class="label">Широта:</span>
+            <span class="input-list__name-value">Широта:</span>
             <label>
                 <input class="latitude" type="number" placeholder="E.g. 12,9">
             </label>
         </li>
         <li>
-            <span class="label">Долгота:</span>
+            <span class="input-list__name-value">Долгота:</span>
             <label>
                 <input class="longitude" type="number" placeholder="E.g. 112,5">
             </label>
@@ -25,22 +26,23 @@
     </ul>
     <button class="but-show-weather">Показать погоду</button>
     </div>
+    <img class="loading-indicator" src="content/load.gif" alt="Загрузка...">
 
     <ul class="weather-card">
         <li>
-            <img src="" alt="отображение примерной погоды">
+            <img src="" class="weather-card__weather-pic" alt="отображение примерной погоды">
         </li>
         <li>
-            <p>Местоположение, время</p>
+            <p class="weather-card__location-and-time">Местоположение, время</p>
         </li>
         <li>
-            <p>Температура: _°С</p>
+            <p class="weather-card__temperature">Температура: _°С</p>
         </li>
         <li>
-            <p>Ветер: _ м/с</p>
+            <p class="weather-card__wind">Ветер: _ м/с</p>
         </li>
         <li>
-            <p>Влажность: _%</p>
+            <p class="weather-card__humidity">Влажность: _%</p>
         </li>
     </ul>
 </main>

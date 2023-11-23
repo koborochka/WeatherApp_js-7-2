@@ -19,7 +19,7 @@ ul{
     margin-top: 79px;
 }
 
-.label{
+.input-list__name-value{
     font-size: 40px;
     margin-right: 30px;
 }
@@ -40,12 +40,23 @@ ul{
     font-size: 40px;
 }
 
+.but-show-weather:hover{
+    border: #00C6BD 2px solid;
+}
+
+.loading-indicator {
+    display: none;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .latitude, .longitude{
     width: 405px;
     height: 49px;
     border: 2px solid #000;
 }
-
 
 .weather-card{
     background: #355FCA;
@@ -58,6 +69,8 @@ ul{
     margin-top: 45px;
     position: relative;
     padding-top: 5px;
+
+    display: none;
 }
 
 .weather-card > li{
@@ -68,14 +81,15 @@ ul{
     text-align: start;
 }
 
-.weather-card > li:first-child{
+.weather-card__weather-pic{
     position: absolute;
     right: 39px;
     bottom: 45px;
 
-    display: none;
 }
-
-.weather-card > li:nth-child(3){
+.weather-card__location-and-time{
+    font-weight: bold;
+}
+.weather-card__temperature{
     margin-top: 70px;
 }
