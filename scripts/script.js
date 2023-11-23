@@ -2,10 +2,10 @@ import { getWeatherApi } from "./api.js";
 
 const showWeatherButton = document.querySelector('.but-show-weather');
 const loadingIndicator = document.querySelector('.loading-indicator');
+const weatherCard = document.querySelector('.weather-card');
 
 function showWeatherCard() {
-    const weatherCard = document.querySelector('.weather-card');
-    weatherCard.style.display = 'block'; 
+    weatherCard.style.display = 'block';
 }
 
 async function getWeather() {
@@ -18,6 +18,7 @@ async function getWeather() {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
     try {
+        weatherCard.style.display = 'none';
         loadingIndicator.style.display = 'block';
 
         const response = await fetch(apiUrl);
@@ -28,7 +29,7 @@ async function getWeather() {
         } else {
             console.log(weather); // вот это удалить надо потом
             await getWeatherParameters(weather);
-            showWeatherCard();
+            weatherCard.style.display = 'block';
         }
     } catch (error) {
         console.error('Fetch error:', error);
