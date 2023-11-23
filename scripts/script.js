@@ -4,9 +4,6 @@ const showWeatherButton = document.querySelector('.but-show-weather');
 const loadingIndicator = document.querySelector('.loading-indicator');
 const weatherCard = document.querySelector('.weather-card');
 
-function showWeatherCard() {
-    weatherCard.style.display = 'block';
-}
 
 async function getWeather() {
     const latitude = document.querySelector('.latitude').value;
@@ -22,13 +19,13 @@ async function getWeather() {
         loadingIndicator.style.display = 'block';
 
         const response = await fetch(apiUrl);
-        const weather = await response.json();
+        const weatherData = await response.json();
 
-        if (weather.length === 0) {
-            alert(`No coordinates found for latitude=${latitude} and longitude=${longitude}`);
+        if (!weatherData || Object.keys(weatherData).length === 0) {
+            alert(`Не нашлось данных о погоде для широты=${latitude} и долготы=${longitude}`);
         } else {
-            console.log(weather); // вот это удалить надо потом
-            await getWeatherParameters(weather);
+            console.log(weatherData); // вот это удалить надо потом
+            await getWeatherParameters(weatherData);
             weatherCard.style.display = 'block';
         }
     } catch (error) {

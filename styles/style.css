@@ -27,9 +27,10 @@ ul{
 .but-show-weather{
     color: white;
     border: none;
+    cursor: pointer;
 
     border-radius: 8px;
-    background: #355FCA;
+    background: #739AFF;
 
     width: 617px;
     height: 91px;
@@ -41,7 +42,11 @@ ul{
 }
 
 .but-show-weather:hover{
-    border: #00C6BD 2px solid;
+    border: #355FCA 2px solid;
+}
+
+.but-show-weather:active{
+    background: #355FCA;
 }
 
 .loading-indicator {
@@ -56,10 +61,11 @@ ul{
     width: 405px;
     height: 49px;
     border: 2px solid #000;
+    font-size: 24px;
 }
 
 .weather-card{
-    background: #355FCA;
+    background: #739AFF;
     width: 617px;
     height: 306px;
     border-radius: 8px;
