@@ -24,8 +24,9 @@ async function getWeather() {
             alert(`Не нашлось данных о погоде для широты=${latitude} и долготы=${longitude}`);
         } else {
             console.log(weatherData); // вот это удалить надо потом
-            await getWeatherParameters(weatherData);
             loadMap(latitude,longitude);
+            await getWeatherParameters(weatherData);
+            appendInfoToHistory(parseFloat(latitude).toFixed(2),parseFloat(longitude).toFixed(2));
             mainContent.style.display = 'block';
         }
     } catch (error) {
@@ -106,3 +107,54 @@ function loadMap(latitude, longitude) {
 }
 
 showWeatherButton.addEventListener("click", getWeather);
+
+let historyElementsCount = 0;
+const historyList = document.querySelector('.request-history__list')
+const showHistoryButton = document.querySelector('.request-history__container__wrap-button')
+
+function appendInfoToHistory(latitude, longitude) {
+    maintainHistoryLimit();
+
+    const currentTime = getCurrentUserTime();
+    const historyElement = document.createElement('li');
+
+    historyElement.innerHTML =
+        `<h2>${currentTime}</h2> 
+         <div>
+             <p>Широта: ${latitude}</p>
+             <p>Долгота: ${longitude}</p>
+         </div>`;
+
+    historyList.insertBefore(historyElement, historyList.firstChild);
+    historyElementsCount++;
+
+    historyList.style.maxHeight = historyList.scrollHeight + 'px';
+}
+
+function getCurrentUserTime() {
+    const date = new Date(Date.now());
+    let minutes = date.getMinutes();
+
+    if (minutes.toString().length === 1) {
+        minutes = '0' + minutes;
+    }
+
+    return date.getHours() + ':' + minutes;
+}
+function maintainHistoryLimit() {
+    if (historyElementsCount >= 4) {
+        historyList.removeChild(historyList.lastChild);
+        historyElementsCount--;
+    }
+}
+
+showHistoryButton.onclick = function () {
+    const isListVisible = historyList.style.maxHeight !== '0px';
+
+    if (isListVisible) {
+        historyList.style.maxHeight = '0';
+    }
+    else {
+        historyList.style.maxHeight = historyList.scrollHeight + 'px';
+    }
+}
