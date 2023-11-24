@@ -39,7 +39,7 @@ async function getWeather() {
 function checkExceptions(latitude, longitude) {
     if (!latitude || !longitude || Math.abs(latitude) > 90 || Math.abs(longitude) > 180){
         alert("Широта должна быть от -90 до 90, долгота - от -180 до 180. Поля не могут оставаться пустыми.");
-        throw new Error("Введены неверные данные")
+        throw new Error("Введены неверные данные");
     }
 }
 
@@ -51,15 +51,16 @@ async function getWeatherParameters(currentWeather) {
     document.querySelector('.main-content__weather-card__wind')
         .textContent = `Ветер: ${currentWeather['wind']['speed']} м/с`;
     const place = currentWeather.name;
+    const curLocalTime = (await getCurTime(currentWeather)).toString();
     document.querySelector('.main-content__weather-card__location-and-time')
-        .textContent = place === "" ? `Вне населенного пункта, какое-то время` : place + ', какое-то время'
+        .textContent = place === "" ? `Вне населенного пункта, ` + curLocalTime : place + ', ' + curLocalTime;
     const weatherPic = document.querySelector('.main-content__weather-card__weather-pic');
     weatherPic.src = ` https://openweathermap.org/img/wn/${currentWeather['weather'][0]['icon']}@2x.png`;
     weatherPic.style.transform = 'scale(2)';
 }
 
-/*
-async function getCurTameAndDate(data){
+
+async function getCurTime(data){
     try {
         const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/London');
 
@@ -68,21 +69,18 @@ async function getCurTameAndDate(data){
         }
 
         const utcTimeData = await response.json();
+
         const utcTime = utcTimeData['datetime']
-
         const shiftTime = data['timezone'];
-        //const resultDate = new Date((utcTime + shiftTime) * 1000);
-       // const shiftedDateTime = new Date(utcTime.getTime() + shiftTime * 1000);
-        console.log(utcTime)
-        console.log(new Date(utcTime))
-        console.log(new Date(Date.parse(utcTime)));
 
+        const dateWithoutTimezoneUTC = new Date(utcTime.replace('T', ' ').replace(/\+.*$/, ''));
+        const shiftedTime = new Date( dateWithoutTimezoneUTC.getTime() + (shiftTime * 1000) );
+        return shiftedTime.toTimeString().slice(0,5);
     }
     catch (error) {
         console.error('Fetch error:', error);
     }
-
-}*/
+}
 
 function loadMap(latitude, longitude) {
     function init() {
