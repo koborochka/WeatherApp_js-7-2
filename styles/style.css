@@ -9,7 +9,7 @@ ul{
     margin: 0;
 }
 
-.weather-input-container, .weather-card {
+.weather-input-container, .main-content__weather-card {
     text-align: center;
 }
 
@@ -56,15 +56,27 @@ ul{
     margin-right: auto;
 }
 
-
 .latitude, .longitude{
     width: 405px;
     height: 49px;
     border: 2px solid #000;
     font-size: 24px;
 }
+.main-content{
+    display: none;
+}
 
-.weather-card{
+.main-content__map{
+    width: 350px;
+    height: 300px;
+    position: absolute;
+}
+
+[class*="copyrights-pane"] {
+    display: none !important;
+}
+
+.main-content__weather-card{
     background: #739AFF;
     width: 617px;
     height: 306px;
@@ -76,10 +88,9 @@ ul{
     position: relative;
     padding-top: 5px;
 
-    display: none;
 }
 
-.weather-card > li{
+.main-content__weather-card > li{
     color: #FFF;
     font-size: 26px;
     margin-left: 43px;
@@ -87,15 +98,15 @@ ul{
     text-align: start;
 }
 
-.weather-card__weather-pic{
+.main-content__weather-card__weather-pic{
     position: absolute;
     right: 39px;
     bottom: 45px;
 
 }
-.weather-card__location-and-time{
+.main-content__weather-card__location-and-time{
     font-weight: bold;
 }
-.weather-card__temperature{
+.main-content__weather-card__temperature{
     margin-top: 70px;
 }

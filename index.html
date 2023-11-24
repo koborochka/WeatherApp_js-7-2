@@ -5,7 +5,8 @@
     <title>Погода</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <script type="module" src="scripts/script.js" defer></script>
+    <script  src="scripts/script.js" type="module" defer></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=a12dc550-5675-49d6-9492-ae6487384217"></script>
 </head>
 <body>
 <main>
@@ -26,25 +27,29 @@
     </ul>
     <button class="but-show-weather">Показать погоду</button>
     </div>
+
     <img class="loading-indicator" src="content/load.gif" alt="Загрузка...">
 
-    <ul class="weather-card">
-        <li>
-            <img src="" class="weather-card__weather-pic" alt="отображение примерной погоды">
-        </li>
-        <li>
-            <p class="weather-card__location-and-time">Местоположение, время</p>
-        </li>
-        <li>
-            <p class="weather-card__temperature">Температура: _°С</p>
-        </li>
-        <li>
-            <p class="weather-card__wind">Ветер: _ м/с</p>
-        </li>
-        <li>
-            <p class="weather-card__humidity">Влажность: _%</p>
-        </li>
-    </ul>
+    <div class="main-content">
+        <div class="main-content__map" id="map"></div>
+        <ul class="main-content__weather-card">
+            <li>
+                <img src="" class="main-content__weather-card__weather-pic" alt="отображение примерной погоды">
+            </li>
+            <li>
+                <p class="main-content__weather-card__location-and-time">Местоположение, время</p>
+            </li>
+            <li>
+                <p class="main-content__weather-card__temperature">Температура: _°С</p>
+            </li>
+            <li>
+                <p class="main-content__weather-card__wind">Ветер: _ м/с</p>
+            </li>
+            <li>
+                <p class="main-content__weather-card__humidity">Влажность: _%</p>
+            </li>
+        </ul>
+    </div>
 </main>
 </body>
 </html>
