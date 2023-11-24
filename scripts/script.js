@@ -16,14 +16,11 @@ async function getWeather() {
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
         mainContent.style.display = 'none';
         loadingIndicator.style.display = 'block';
-
         const response = await fetch(apiUrl);
         const weatherData = await response.json();
-
         if (!weatherData || Object.keys(weatherData).length === 0) {
             alert(`Не нашлось данных о погоде для широты=${latitude} и долготы=${longitude}`);
         } else {
-            console.log(weatherData); // вот это удалить надо потом
             loadMap(latitude,longitude);
             await getWeatherParameters(weatherData);
             appendInfoToHistory(parseFloat(latitude).toFixed(2),parseFloat(longitude).toFixed(2));
