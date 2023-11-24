@@ -115,12 +115,26 @@ function appendInfoToHistory(latitude, longitude) {
     const currentTime = getCurrentUserTime();
     const historyElement = document.createElement('li');
 
+    historyElement.setAttribute('data-lat', latitude);
+    historyElement.setAttribute('data-lon', longitude);
+
     historyElement.innerHTML =
-        `<h2>${currentTime}</h2> 
-         <div>
-             <p>Широта: ${latitude}</p>
-             <p>Долгота: ${longitude}</p>
+        `<div class="request-history__list__history-block">
+            <h2>${currentTime}</h2> 
+             <p class="cur-latitude">Широта: ${latitude}</p>
+             <p class="cur-longitude">Долгота: ${longitude}</p>
          </div>`;
+
+    historyElement.addEventListener('click', function () {
+
+        const clickedLatitude = this.getAttribute('data-lat');
+        const clickedLongitude = this.getAttribute('data-lon');
+
+        document.querySelector('.latitude').value = clickedLatitude;
+        document.querySelector('.longitude').value = clickedLongitude;
+
+        getWeather();
+    });
 
     historyList.insertBefore(historyElement, historyList.firstChild);
     historyElementsCount++;

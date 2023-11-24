@@ -72,6 +72,12 @@ h1{
     margin-bottom: 10px;
 }
 
+.request-history__list > li{
+    cursor: pointer;
+    background: #ACC3FF;
+    border-radius: 6px;
+}
+
 .weather-input-container, .main-content__weather-card {
     text-align: center;
 }
