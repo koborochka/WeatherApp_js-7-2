@@ -5,25 +5,50 @@
     <title>Погода</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script  src="scripts/script.js" type="module" defer></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=a12dc550-5675-49d6-9492-ae6487384217"></script>
 </head>
 <body>
 <main>
     <div class="weather-input-container">
     <ul class="input-list">
         <li>
-            <span class="label">Введите широту:</span>
+            <span class="input-list__name-value">Широта:</span>
             <label>
                 <input class="latitude" type="number" placeholder="E.g. 12,9">
             </label>
         </li>
         <li>
-            <span class="label">Введите долготу:</span>
+            <span class="input-list__name-value">Долгота:</span>
             <label>
                 <input class="longitude" type="number" placeholder="E.g. 112,5">
             </label>
         </li>
     </ul>
     <button class="but-show-weather">Показать погоду</button>
+    </div>
+
+    <img class="loading-indicator" src="content/load.gif" alt="Загрузка...">
+
+    <div class="main-content">
+        <div class="main-content__map" id="map"></div>
+        <ul class="main-content__weather-card">
+            <li>
+                <img src="" class="main-content__weather-card__weather-pic" alt="отображение примерной погоды">
+            </li>
+            <li>
+                <p class="main-content__weather-card__location-and-time">Местоположение, время</p>
+            </li>
+            <li>
+                <p class="main-content__weather-card__temperature">Температура: _°С</p>
+            </li>
+            <li>
+                <p class="main-content__weather-card__wind">Ветер: _ м/с</p>
+            </li>
+            <li>
+                <p class="main-content__weather-card__humidity">Влажность: _%</p>
+            </li>
+        </ul>
     </div>
 </main>
 </body>

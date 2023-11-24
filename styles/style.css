@@ -9,7 +9,7 @@ ul{
     margin: 0;
 }
 
-main {
+.weather-input-container, .main-content__weather-card {
     text-align: center;
 }
 
@@ -19,17 +19,18 @@ main {
     margin-top: 79px;
 }
 
-.label{
+.input-list__name-value{
     font-size: 40px;
-    margin-right: 47px;
+    margin-right: 30px;
 }
 
 .but-show-weather{
     color: white;
     border: none;
+    cursor: pointer;
 
     border-radius: 8px;
-    background: #355FCA;
+    background: #739AFF;
 
     width: 617px;
     height: 91px;
@@ -40,8 +41,72 @@ main {
     font-size: 40px;
 }
 
+.but-show-weather:hover{
+    border: #355FCA 2px solid;
+}
+
+.but-show-weather:active{
+    background: #355FCA;
+}
+
+.loading-indicator {
+    display: none;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .latitude, .longitude{
     width: 405px;
     height: 49px;
     border: 2px solid #000;
+    font-size: 24px;
+}
+.main-content{
+    display: none;
+}
+
+.main-content__map{
+    width: 350px;
+    height: 300px;
+    position: absolute;
+}
+
+[class*="copyrights-pane"] {
+    display: none !important;
+}
+
+.main-content__weather-card{
+    background: #739AFF;
+    width: 617px;
+    height: 306px;
+    border-radius: 8px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+    position: relative;
+    padding-top: 5px;
+
+}
+
+.main-content__weather-card > li{
+    color: #FFF;
+    font-size: 26px;
+    margin-left: 43px;
+    margin-top: 20px;
+    text-align: start;
+}
+
+.main-content__weather-card__weather-pic{
+    position: absolute;
+    right: 39px;
+    bottom: 45px;
+
+}
+.main-content__weather-card__location-and-time{
+    font-weight: bold;
+}
+.main-content__weather-card__temperature{
+    margin-top: 70px;
 }
